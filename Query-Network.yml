@@ -8,5 +8,5 @@
   #  - set_fact: my_var="{{ show_output.stdout | from_yaml }}"
       
     - debug:
-        var : "show_output.stdout"
+        var : "show_output.stdout.split('\n')"
 
