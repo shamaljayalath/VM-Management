@@ -7,5 +7,5 @@
       register: show_output
       
     - debug:
-        msg : "show_output"
+        msg : "show_output.stdout"
 
