@@ -3,16 +3,16 @@
   
   tasks:
     - name: Add Vlans
-      shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{vlan_id }}"
+      shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{ vlan_id }}"
       register: create_output 
     - debug:
-        var_1 : "create_output.stdout"
+        var : "create_output.stdout"
         
     - name: List Network Configuration
       shell : "nmcli con show"
       register: show_output
 
    -  debug:
-        var_2 : "show_output.stdout.split('\n')"
+        var : "show_output.stdout.split('\n')"
         
     
