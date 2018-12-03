@@ -6,13 +6,13 @@
       shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{vlan_id }}"
       register: create_output 
     - debug:
-        var : "create_output.stdout"
+        var_1 : "create_output.stdout"
         
     - name: List Network Configuration
       shell : "nmcli con show"
       register: show_output
 
    - debug:
-       var : "show_output.stdout.split('\n')"
+       var_2 : "show_output.stdout.split('\n')"
         
     
