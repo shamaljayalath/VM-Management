@@ -5,8 +5,7 @@
     - name: List Network Configuration
       shell : "nmcli con show"
       register: show_output
-    - set_fact:
-      myvar: "{{ show_output.stdout | from_json }}"
+    - set_fact: myvar= "{{ show_output.stdout | from_json }}"
       
     - debug:
         var : "myvar"
