@@ -1,1 +1,11 @@
+---
+- hosts: all
+  
+  tasks:
+    - name: List Network Configuration
+      shell : "nmcli con show"
+      register: show_output
+      
+    - debug:
+        msg : "show_output"
 
