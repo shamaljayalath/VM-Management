@@ -1,0 +1,15 @@
+---
+- hosts: all
+  
+  tasks:
+    - name: Delete Vlans
+      shell : "nmcli con del uuid {{ vlan_uuid }}"
+      register: delete_output 
+    - debug:
+        var : "delete_output.stdout"
+        
+    - name: List Network Configuration
+      shell : "nmcli con show"
+      register: show_output
+    - debug:
+        var : "show_output.stdout.split('\n')"
