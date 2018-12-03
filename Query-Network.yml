@@ -5,8 +5,8 @@
     - name: List Network Configuration
       shell : "nmcli con show"
       register: show_output
-    - set_fact: my_var="{{ show_output.stdout | from_yaml }}"
+  #  - set_fact: my_var="{{ show_output.stdout | from_yaml }}"
       
     - debug:
-        var : "my_var"
+        var : "show_output.stdout"
 
