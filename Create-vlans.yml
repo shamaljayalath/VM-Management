@@ -11,8 +11,7 @@
     - name: List Network Configuration
       shell : "nmcli con show"
       register: show_output
-
-  # -  debug:
-  #      var : "show_output.stdout.split('\n')"
+    - debug:
+        var : "show_output.stdout.split('\n')"
         
     
