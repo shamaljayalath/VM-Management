@@ -2,7 +2,7 @@
 - hosts: all
   
   tasks:
-    - name: Print
+   # - name: Print
     - debug:
         var : "vlan_id"
         
