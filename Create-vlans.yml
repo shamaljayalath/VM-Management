@@ -5,7 +5,7 @@
    # - name: Print
     - debug:
     #    var : "vlan_id"
-        var : vlan_id.0
+        msg : vlan_id.0
     #    var : "vlan_id.1"
         
     - name: Add Vlans
