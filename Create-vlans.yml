@@ -4,9 +4,9 @@
   tasks:
    # - name: Print
     - debug:
-        var : "vlan_id|length"
-        var : "vlan_id.0"
-        var : "vlan_id.1"
+    #    var : "vlan_id|length"
+    #    var : "vlan_id.0"
+    #    var : "vlan_id.1"
         
     - name: Add Vlans
       shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{ vlan_id }}"
