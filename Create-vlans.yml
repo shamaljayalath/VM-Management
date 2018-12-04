@@ -10,7 +10,9 @@
         
     - name: Add Vlans
       shell : "nmcli con add type vlan con-name vlan{{ vlan_id.item }} dev {{ interface_id }} id {{ vlan_id.item }}"
-      with_items: vlan_id
+      with_items: 
+        - vlan_id.0
+        - vlan_id.1
       register: create_output 
     - debug:
         var : "create_output.stdout"
