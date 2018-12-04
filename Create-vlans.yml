@@ -9,7 +9,8 @@
     #    var : "vlan_id.1"
         
     - name: Add Vlans
-      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.0 }} dev {{ interface_id }} id {{ vlan_id.0 }}"
+      {% for key in vlan_id|length %}
+      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.key }} dev {{ interface_id }} id {{ vlan_id.key }}"
       register: create_output 
     - debug:
         var : "create_output.stdout"
