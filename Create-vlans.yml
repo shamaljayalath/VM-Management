@@ -9,12 +9,12 @@
     #    var : "vlan_id.1"
         
     - name: Add Vlans
-        {% for key, value in vlan_id.iteritems() %}
-          shell : "nmcli con add type vlan con-name vlan{{ vlan_id.value }} dev {{ interface_id }} id {{ vlan_id.value }}"
-          register: create_output 
-         - debug:
-             var : "create_output.stdout"
-        {% endfor %}
+      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.item }} dev {{ interface_id }} id {{ vlan_id.item }}"
+      with_items: vlan_id
+      register: create_output 
+    - debug:
+        var : "create_output.stdout"
+       
         
     - name: List Network Configuration
       shell : "nmcli con show"
