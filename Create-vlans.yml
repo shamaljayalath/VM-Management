@@ -2,6 +2,10 @@
 - hosts: all
   
   tasks:
+    - name: Print
+    - debug:
+        var : "vlan_id"
+        
     - name: Add Vlans
       shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{ vlan_id }}"
       register: create_output 
