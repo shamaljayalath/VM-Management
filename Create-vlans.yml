@@ -3,7 +3,7 @@
   
   tasks:
     - name: Add Vlans
-      shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{ vlan_id }}"
+      shell : "nmcli con add type vlan con-name vlan{{ vlan_id | to_yaml }} dev {{ interface_id }} id {{ vlan_id | to_yaml }}"
       register: create_output 
     - debug:
         var : "create_output.stdout"
