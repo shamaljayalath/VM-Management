@@ -4,7 +4,7 @@
   tasks:
    # - name: Print
     - debug:
-        var : "vlan_id"
+        var : "vlan_id.split(',')[0]"
         
     - name: Add Vlans
       shell : "nmcli con add type vlan con-name vlan{{ vlan_id }} dev {{ interface_id }} id {{ vlan_id }}"
