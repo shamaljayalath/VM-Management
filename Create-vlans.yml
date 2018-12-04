@@ -5,14 +5,11 @@
    # - name: Print
     - debug:
     #    var : "vlan_id"
-        var : vlan_id.0.strip("'")
+    #    var : vlan_id.0.strip("'")
     #    var : "vlan_id.1"
         
     - name: Add Vlans
-      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.item }} dev {{ interface_id }} id {{ vlan_id.item }}"
-      with_items: 
-        - vlan_id.0
-        - vlan_id.1
+      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.0 }} dev {{ interface_id }} id {{ vlan_id.0 }}"
       register: create_output 
     - debug:
         var : "create_output.stdout"
