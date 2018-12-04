@@ -9,9 +9,11 @@
     #    var : "vlan_id.1"
         
     - name: Add Vlans
-      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.1 }} dev {{ interface_id }} id {{ vlan_id.1 }}"
-    #  shell : "nmcli con add type vlan con-name vlan{{ vlan_id.1 }} dev {{ interface_id }} id {{ vlan_id.1 }}"
-    #  shell : "nmcli con add type vlan con-name vlan{{ vlan_id.2 }} dev {{ interface_id }} id {{ vlan_id.2 }}"
+      {% for number in range(vlan_id|length) %}
+         shell : "nmcli con add type vlan con-name vlan{{ vlan_id.number }} dev {{ interface_id }} id {{ vlan_id.number }}"
+   #   shell : "nmcli con add type vlan con-name vlan{{ vlan_id.1 }} dev {{ interface_id }} id {{ vlan_id.1 }}"
+   #   shell : "nmcli con add type vlan con-name vlan{{ vlan_id.2 }} dev {{ interface_id }} id {{ vlan_id.2 }}"
+      {% endfor %}
       register: create_output 
     - debug:
         var : "create_output.stdout"
