@@ -42,4 +42,4 @@
           
     - name: IP address info
       debug:
-        msg: "{{ vm_result.instance.ipv4 }} {{ vm_name }}"
+        msg: "{{ vm_result.instance.hw_eth0.ipaddresses[0] }} {{ vm_name }}"
