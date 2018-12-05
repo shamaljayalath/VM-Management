@@ -1,8 +1,8 @@
 ---
 - name: Guest Creation
   gather_facts: no
- # vars_files:
- #   - vcenter_vars.yml
+  vars_files:
+    - vcenter_vars.yml
   hosts: localhost
   tasks:
     - name: Clone a virtual machine {{ vm_name }} from existing template {{ template_name }}
@@ -18,3 +18,15 @@
         networks:
           - name: "{{ network }}"
             type: dhcp
+            
+  
+        cluster: "{{ cluster_2 }}"
+        customization:
+          dns_servers: "{{ dns_server }}"
+        wait_for_ip_address: yes
+      register: vm_result
+
+- name: Assert that VM is created
+  assert:
+    that:
+      - "vm_result.changed"
