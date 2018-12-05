@@ -10,7 +10,7 @@
         
     - name: Add Vlans
         
-      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.item }} dev {{ interface_id }} id {{ vlan_id.item }}"
+      shell : "nmcli con add type vlan con-name vlan{{ vlan_id.{{ item }} }} dev {{ interface_id }} id {{ vlan_id.{{ item }} }}"
       
    #   shell : "nmcli con add type vlan con-name vlan{{ vlan_id.1 }} dev {{ interface_id }} id {{ vlan_id.1 }}"
    #   shell : "nmcli con add type vlan con-name vlan{{ vlan_id.2 }} dev {{ interface_id }} id {{ vlan_id.2 }}"  
