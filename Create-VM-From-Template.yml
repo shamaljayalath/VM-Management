@@ -22,7 +22,7 @@
         cluster: "{{ cluster_2 }}"
         
         hardware:
-          memory_mb: "{{ vm-memory }}"
+          memory_mb: "{{ vm_memory }}"
           
         disk:
           - size_gb: "{{ disk_size }}"
