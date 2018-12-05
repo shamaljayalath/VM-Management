@@ -19,8 +19,17 @@
           - name: "{{ network }}"
             type: dhcp
             
-  
         cluster: "{{ cluster_2 }}"
+        
+        hardware:
+          memory_mb: "{{ vm-memory }}"
+          
+        disk:
+          - size_gb: "{{ disk_size }}"
+            type: thin
+            datastore: "{{ datastore }}"
+
+
         customization:
           dns_servers: "{{ dns_server }}"
         wait_for_ip_address: yes
