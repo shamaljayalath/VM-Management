@@ -2,21 +2,12 @@
 - hosts: all
   
   tasks:
-   # - name: Print
-    - debug:
-    #    var : "vlan_id"
-    #    var : vlan_id.0.strip("'")
-    #    var : "vlan_id.1"
-        
+      
     - name: Add Vlans
         
       shell : "nmcli con add type vlan con-name vlan{{ item }} dev {{ interface_id }} id {{ item }}"
-      
-   #   shell : "nmcli con add type vlan con-name vlan{{ vlan_id.1 }} dev {{ interface_id }} id {{ vlan_id.1 }}"
-   #   shell : "nmcli con add type vlan con-name vlan{{ vlan_id.2 }} dev {{ interface_id }} id {{ vlan_id.2 }}"  
       with_items: "{{ vlan_id }}"
-       # - 10
-       # - 20
+      
       register: create_output 
     - debug:
         var : "create_output.stdout"
