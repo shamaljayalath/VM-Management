@@ -1,0 +1,26 @@
+---
+# Global Settings
+- vcenter_server: 168.1.107.242
+- vcenter_user: administrator@vsphere.local
+- vcenter_pass:  RH[}3y5p
+- datacenter: Europe-Datacenter1
+- cluster: Asia-Cluster1
+
+# ESXi settings
+- esxi_hostname: 10.118.17.41
+- esxi_username: root
+- esxi_password: HgXyWE4b
+
+# VM settings
+# - vm_name: VM_168
+# - template_name: Ansible
+- datacenter_2: Demo
+- cluster_2: Cluster-1
+- datastore: Demo-Datastore-1
+- network: VM-Private
+- folder: /vm
+- dns_server: 8.8.8.8
+
+# Snapshot settings
+- snapshot: Ansible_snapshot
+- snapshot_name: Ansible_Snapshot
