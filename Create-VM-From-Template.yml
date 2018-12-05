@@ -26,7 +26,7 @@
         wait_for_ip_address: yes
       register: vm_result
 
-- name: Assert that VM is created
-  assert:
-    that:
-      - "vm_result.changed"
+    - name: Assert that VM is created
+      assert:
+        that:
+          - "vm_result.changed"
