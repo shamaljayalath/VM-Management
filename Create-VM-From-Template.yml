@@ -30,3 +30,7 @@
       assert:
         that:
           - "vm_result.changed"
+          
+    - name: IP address info
+      debug:
+        msg: "{{ vm_result.ipv4 }} {{ vm_name }}"
