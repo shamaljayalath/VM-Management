@@ -1,0 +1,20 @@
+---
+- name: Guest Creation
+  gather_facts: no
+ # vars_files:
+ #   - vcenter_vars.yml
+  hosts: localhost
+  tasks:
+    - name: Clone a virtual machine {{ vm_name }} from existing template {{ template_name }}
+      vmware_guest:
+        name: "{{ vm_name }}"
+        template: "{{ template_name }}"
+        hostname: "{{ vcenter_server }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        validate_certs: no 
+        folder: "{{ folder }}"
+        datacenter: "{{ datacenter_2 }}"
+        networks:
+          - name: "{{ network }}"
+            type: dhcp
