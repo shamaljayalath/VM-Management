@@ -11,6 +11,11 @@
 - esxi_username: root
 - esxi_password: HgXyWE4b
 
+# settings for the playbook which changes vm network from vcenter ( Change-Vcenter-vlan.yml)
+- esxi_2_hostname: 10.118.17.62
+- esxi_2_username: root
+- esxi_2_password: E3cRZcUl
+
 # VM settings
 # - vm_name: VM_168
 # - template_name: Ansible
