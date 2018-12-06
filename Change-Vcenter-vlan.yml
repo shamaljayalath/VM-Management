@@ -7,7 +7,7 @@
       
     - name: VSPHERE_GUEST | connect vNICs to correct network
       connection: local
-      vsphere_guest:
+      vmware_guest:
         vcenter_hostname: "{{ vcenter_server }}"
         username:  "{{ vcenter_user }}"
         password: "{{ vcenter_pass }}"
