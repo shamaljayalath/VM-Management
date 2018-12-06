@@ -18,7 +18,7 @@
           nic1:
               type: vmxnet3
               network: "{{ nic1_network }}"
-              network_type: dvs
+              network_type: standard
               state: connected
        #   nic2:
        #       type: vmxnet3
