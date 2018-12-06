@@ -6,30 +6,30 @@
     - name: VSPHERE_GUEST | connect vNICs to correct network
       connection: local
       vsphere_guest:
-        vcenter_hostname: "{{ vcenter_hostname }}"
-        username:  "{{ vcenter_username }}"
-        password: "{{ vcenter_password }}"
+        vcenter_hostname: "{{ vcenter_server }}"
+        username:  "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
         guest: "{{ vm_name }}"
         state: reconfigured
         esxi:
-          datacenter: "{{ esxi_datacenter }}"
-          hostname: "{{ esxi_hostname }}"
+          datacenter: "{{ datacenter_2 }}"
+          hostname: "{{ esxi_2_hostname }}"
         vm_nic:
           nic1:
               type: vmxnet3
               network: "{{ nic1_network }}"
               network_type: dvs
               state: connected
-          nic2:
-              type: vmxnet3
-              network: "{{ nic2_network }}"
-              network_type: dvs
-              state: connected
+       #   nic2:
+       #       type: vmxnet3
+       #       network: "{{ nic2_network }}"
+       #       network_type: dvs
+       #       state: connected
       register: vm_net_reconfigured    
        
         
-    - name: List Network Configuration
-      shell : "nmcli con show"
-      register: show_output
-    - debug:
-var : "show_output.stdout.split('\n')"
+    #- name: List Network Configuration
+    #  shell : "nmcli con show"
+    #  register: show_output
+    #- debug:
+#var : "show_output.stdout.split('\n')"
