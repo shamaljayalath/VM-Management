@@ -20,11 +20,12 @@
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
-        - name: "{{ item }}"
+        - name: "VM-test-net-1"
+        - name: "VM-test-net-2"
         #  device_type: vmxnet3
-          with_items:
-            - VM-test-net-1
-            - VM-test-net-2
+       #   with_items:
+       #     - VM-test-net-1
+       #     - VM-test-net-2
       #  - name: "{{ nic2_network }}"
       #    device_type:  vmxnet3
       register: vm_net_reconfigured
