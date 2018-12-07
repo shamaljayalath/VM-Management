@@ -6,7 +6,7 @@
   tasks:
   
     - debug:
-        msg: "{{ nic_list }}"
+        msg: "{{ nic_list.0 }}"
       
     - name: VMWARE_GUEST | connect vNICs to correct network
       connection: local
@@ -23,8 +23,8 @@
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
+        - name: "{{ nic_list.0 }}"
         - name: "{{ nic_list.1 }}"
-        - name: "{{ nic_list.2 }}"
    #   with_items: "{{ nic_list }}"
         #  device_type: vmxnet3
        #   with_items:
