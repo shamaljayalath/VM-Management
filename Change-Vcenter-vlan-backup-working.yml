@@ -1,0 +1,25 @@
+---
+- hosts: all
+  vars_files:
+    - vcenter_vars.yml
+  
+  tasks:
+      
+    - name: VMWARE_GUEST | connect vNICs to correct network
+      connection: local
+      vmware_guest:
+        hostname: "{{ vcenter_server }}"
+        username:  "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        name: "{{ vm_name }}"
+        folder: "{{ folder }}"
+        datacenter: "{{ datacenter_2 }}"
+        cluster: "{{ cluster_2 }}"
+        validate_certs: false
+        state: present
+        networks:
+        - name: "{{ nic1_network }}"
+          device_type: vmxnet3
+      #  - name: "{{ nic2_network }}"
+      #    device_type:  vmxnet3
+register: vm_net_reconfigured
