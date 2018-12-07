@@ -18,8 +18,9 @@
         validate_certs: false
         state: present
         networks:
-        - name: "{{ nic1_network }}"
+        - name: "{{ item }}"
           device_type: vmxnet3
+          with_items: "{{ nic1_network }}"
       #  - name: "{{ nic2_network }}"
       #    device_type:  vmxnet3
       register: vm_net_reconfigured
