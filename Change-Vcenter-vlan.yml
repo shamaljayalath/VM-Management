@@ -18,6 +18,8 @@
         validate_certs: false
         state: present
         networks:
+        - name: "VM-Private"
+          device_type: vmxnet3
         - name: "{{ item }}"
           device_type: vmxnet3
           with_items: "{{ nic_network }}"
