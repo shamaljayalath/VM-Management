@@ -20,16 +20,17 @@
         cluster: "{{ cluster_2 }}"
         validate_certs: false
         state: present
-    
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
-        - name: "{{ nic_list }}"
-         # with_items: "{{ nic_list }}"
+        - name: "{{ nic_list.1 }}"
+        - name: "{{ nic_list.2 }}"
+   #   with_items: "{{ nic_list }}"
         #  device_type: vmxnet3
        #   with_items:
        #     - VM-test-net-1
        #     - VM-test-net-2
       #  - name: "{{ nic2_network }}"
       #    device_type:  vmxnet3
+       
       register: vm_net_reconfigured
