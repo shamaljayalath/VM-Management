@@ -22,7 +22,9 @@
           device_type: vmxnet3
         - name: "{{ item }}"
         #  device_type: vmxnet3
-          with_items: "{{ nic_network }}"
+          with_items:
+            - VM-test-net-1
+            - VM-test-net-2
       #  - name: "{{ nic2_network }}"
       #    device_type:  vmxnet3
       register: vm_net_reconfigured
