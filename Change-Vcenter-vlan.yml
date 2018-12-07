@@ -18,7 +18,7 @@
         validate_certs: false
         state: present
     - debug:
-        var: "{{ nic_list }}"
+        var: "{{ nic_list.1 }}"
         
         networks:
         - name: "VM-Private"
