@@ -21,7 +21,6 @@
         validate_certs: false
         state: present
     
-        
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
