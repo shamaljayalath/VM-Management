@@ -18,7 +18,8 @@
         validate_certs: false
         state: present
     - debug:
-        var: "{{ nic_network }}"
+        var: "{{ nic_list }}"
+        
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
