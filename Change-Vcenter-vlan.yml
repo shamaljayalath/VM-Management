@@ -17,6 +17,8 @@
         cluster: "{{ cluster_2 }}"
         validate_certs: false
         state: present
+    - debug:
+        var: "{{ nic_network }}"
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
