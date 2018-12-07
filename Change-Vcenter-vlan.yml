@@ -4,6 +4,9 @@
     - vcenter_vars.yml
   
   tasks:
+  
+    - debug:
+        msg: "{{ nic_list }}"
       
     - name: VMWARE_GUEST | connect vNICs to correct network
       connection: local
@@ -17,8 +20,7 @@
         cluster: "{{ cluster_2 }}"
         validate_certs: false
         state: present
-    - debug:
-        msg: "{{ nic_list }}"
+    
         
         networks:
         - name: "VM-Private"
