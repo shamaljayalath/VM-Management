@@ -20,8 +20,8 @@
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
-        - name: "VM-test-net-1"
-        - name: "VM-test-net-2"
+        - name: "{{ items }}"
+          with_items: "{{ nic_network }}"
         #  device_type: vmxnet3
        #   with_items:
        #     - VM-test-net-1
