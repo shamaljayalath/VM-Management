@@ -6,7 +6,7 @@
   vars:
     test_nets:
       - name: "VM-test-net-1"
-      - name: "VM-test-net-2" 
+    #  - name: "VM-test-net-2" 
   
   tasks:
   
