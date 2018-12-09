@@ -6,6 +6,7 @@
   vars:
     test_nets:
       - name: "VM-test-net-1"
+      - device_type: vmxnet3
     #  - name: "VM-test-net-2" 
   
   tasks:
