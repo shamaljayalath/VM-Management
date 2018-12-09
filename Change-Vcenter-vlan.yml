@@ -2,6 +2,11 @@
 - hosts: all
   vars_files:
     - vcenter_vars.yml
+    
+  vars:
+    test_nets:
+      - name: "VM-test-net-1"
+      - name: "VM-test-net-2" 
   
   tasks:
   
@@ -23,7 +28,7 @@
         networks:
         - name: "VM-Private"
           device_type: vmxnet3
-     #     - name: "{{ nic_list }}"
+          - name: "{{ test_nets }}"
         - name: "{{ nic_list.0 }}"
      #   - name: "{{ nic_list.1 }}"
    #   with_items: "{{ nic_list }}"
